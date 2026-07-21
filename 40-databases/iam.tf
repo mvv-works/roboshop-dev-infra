@@ -1,7 +1,7 @@
 resource "aws_iam_role" "mysql" {
   name = "${local.common_name}-mysql"
 
-  # This is the trust policy, means we can attach this role to EC2 instancel
+  # This is the trust policy, means we can attach this role to EC2 instance
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -26,7 +26,7 @@ resource "aws_iam_role" "mysql" {
 
 resource "aws_iam_policy" "mysql" {
   name        = "${local.common_name}-mysql"
-  description = "Policy to read MySQL SSM parameter to attach to mysql instance"
+  description = "Policy to read MySQL SSM paramter to attach to mysql instance"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
