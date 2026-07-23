@@ -192,12 +192,6 @@ resource "terraform_data" "catalogue_delete" {
   ]
   depends_on = [aws_autoscaling_policy.catalogue]
 
-
-  provisioner "file" {
-    source      = "bootstrap.sh"
-    destination = "/tmp/bootstrap.sh"
-  }
-
   # execuites where terraform is running
   provisioner "local-exec" {
     command = "aws ec2 terminate-instances --instance-ids ${aws_instance.catalogue.id}"
